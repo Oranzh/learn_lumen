@@ -15,8 +15,8 @@
 
 
 
-$router->get('posts',  [  'uses' => 'PostController@index', 'middleware' => ['throttle:5,2',  'permission:super_admin&admin']]);
-$router->get('posts/{id}', [ 'as' => 'profile', 'uses' => 'PostController@show', 'middleware' => 'cors']);
+$router->get('posts',  [  'uses' => 'PostController@index', 'middleware' => ['throttle:5,2',  'permission:super_admin|admin']]);
+$router->get('posts/{id}', [ 'as' => 'profile', 'uses' => 'PostController@show']);
 $router->post('posts', 'PostController@create');
 $router->put('posts', 'PostController@update');
 
@@ -36,4 +36,9 @@ $router->group(['prefix' => 'user'], function () use ($router) {
     $router->post('login', 'AuthController@login');
     $router->get('profile', 'AuthController@profile');
     $router->get('permission', 'AuthController@permission');
+});
+
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('job/{id}', 'ExampleController@testJob');
 });

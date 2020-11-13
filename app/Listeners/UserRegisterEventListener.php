@@ -18,6 +18,7 @@ class UserRegisterEventListener extends Listener
     public function handle(UserRegisterEvent $event)
     {
         var_dump(__CLASS__);
+        var_dump($event->user);
         Log::info('Listener');
     }
 }

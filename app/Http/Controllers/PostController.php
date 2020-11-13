@@ -26,7 +26,6 @@ class PostController extends Controller
 
     public function index()
     {
-        $user = Auth::user();
         $all = $this->post->selectAll();
         $message = 'Message ';
         $log = [

@@ -78,14 +78,14 @@ $app->configure('permission');
 |
 */
 
-// $app->middleware([
-//     App\Http\Middleware\ExampleMiddleware::class
-// ]);
+ $app->middleware([
+     palanik\lumen\Middleware\LumenCors::class,
+ ]);
+
 
  $app->routeMiddleware([
      'auth' => App\Http\Middleware\Authenticate::class,
      'throttle' => App\Http\Middleware\ThrottleRequests::class,
-     'cors' => palanik\lumen\Middleware\LumenCors::class,
      'permission' => Spatie\Permission\Middlewares\PermissionMiddleware::class,
      'role'       => Spatie\Permission\Middlewares\RoleMiddleware::class,
  ]);
@@ -104,8 +104,10 @@ $app->configure('permission');
  $app->register(App\Providers\AppServiceProvider::class);
  //auth
  $app->register(App\Providers\AuthServiceProvider::class);
+
+ //event listener
  $app->register(App\Providers\EventServiceProvider::class);
- $app->register(\App\Providers\PostServiceProvider::class);
+ $app->register(App\Providers\PostServiceProvider::class);
 
  //auth
 $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);

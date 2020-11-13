@@ -18,12 +18,22 @@ class Post extends BaseModel
 
     ];
 
+    /**
+     * @var array published  默认值1
+     */
     protected $attributes = [
         'published' => 1,
     ];
 
-//    protected $casts = [
-//        'created_at' => 'datetime:U',
-//    ];
+    /**
+     * @desc  强制转换类型
+     * @var array
+     */
+    protected $casts = [
+        'published'  => 'boolean',
+        'title'  => 'int',
+    ];
+
+
 
 }
