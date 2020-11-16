@@ -30,7 +30,7 @@ class ExampleJob extends Job
         if ($this->z == 5) {
 
             Log::emergency('Hello');
-            throw new \Exception('Failed');
+            //throw new \Exception('Failed');
         }
         Log::info('end----'.Carbon::now());
 
