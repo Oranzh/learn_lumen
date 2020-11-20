@@ -41,4 +41,11 @@ $router->group(['prefix' => 'user'], function () use ($router) {
 
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('job/{id}', 'ExampleController@testJob');
+    $router->get('random', 'ExampleController@randomInt');
+    $router->get('oneToManyReverse', 'ExampleController@oneToManyReverse');
+    $router->get('oneToMany/{id}', 'ExampleController@oneToMany');
+    $router->get('manyToMany/{id}', 'ExampleController@manyToMany');
+    $router->get('manyToMany2/{id}', 'ExampleController@manyToMany2');
+    $router->get('passport', 'ExampleController@allPassports');
+    $router->get('iii', 'ExampleController@iii');
 });

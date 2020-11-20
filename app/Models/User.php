@@ -64,4 +64,9 @@ class User extends BaseModel implements AuthenticatableContract, AuthorizableCon
         Permission::create(['name' => 'super_admin']);
         //Permission::create(['name' => 'Plus']);
     }
+
+    public function posts()
+    {
+        return $this->hasMany('App\models\Post');
+    }
 }
